@@ -1,0 +1,421 @@
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<!--<head>-->
+<!--  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />-->
+<!--  <title>15 Puzzle</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="wrapper">-->
+<!--  <div id="container">-->
+<!--    <h1>Puzzle 15</h1>-->
+<!--    <div id="board-time">00:00</div>-->
+<!--    <div id="container-play">-->
+<!--      <a id="play" href="javascript:void(0)">Click to play</a>-->
+<!--    </div>-->
+<!--    <div id="alert_puzzle"></div>-->
+<!--    <div id="puzzle">-->
+<!--      <div number="1" class="cell-puzzle row-1 col-1">1</div>-->
+<!--      <div number="2" class="cell-puzzle row-1 col-2">2</div>-->
+<!--      <div number="3" class="cell-puzzle row-1 col-3">3</div>-->
+<!--      <div number="4" class="cell-puzzle row-1 col-4">4</div>-->
+<!--      <div number="5" class="cell-puzzle row-2 col-1">5</div>-->
+<!--      <div number="6" class="cell-puzzle row-2 col-2">6</div>-->
+<!--      <div number="7" class="cell-puzzle row-2 col-3">7</div>-->
+<!--      <div number="8" class="cell-puzzle row-2 col-4">8</div>-->
+<!--      <div number="9" class="cell-puzzle row-3 col-1">9</div>-->
+<!--      <div number="10" class="cell-puzzle row-3 col-2">10</div>-->
+<!--      <div number="11" class="cell-puzzle row-3 col-3">11</div>-->
+<!--      <div number="12" class="cell-puzzle row-3 col-4">12</div>-->
+<!--      <div number="13" class="cell-puzzle row-4 col-1">13</div>-->
+<!--      <div number="14" class="cell-puzzle row-4 col-2">14</div>-->
+<!--      <div number="15" class="cell-puzzle row-4 col-3">15</div>-->
+<!--      <div number="0" class="cell-puzzle row-4 col-4 cell-puzzle-zero"></div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+<!--<style>-->
+<!--  *{-->
+<!--    padding:0px;-->
+<!--    margin:0px;-->
+<!--  }-->
+<!--  html{-->
+<!--    width:100%;-->
+<!--    height:100%;-->
+<!--  }-->
+<!--  body{-->
+<!--    height:100%;-->
+<!--    width:100%;-->
+<!--  }-->
+<!--  html > body {-->
+<!--    height: 100%;-->
+<!--  }-->
+<!--  #wrapper {-->
+<!--    width:100%;-->
+<!--    margin:0 auto;-->
+<!--  }-->
+<!--  #wrapper a {-->
+<!--    text-align:center;-->
+<!--  }-->
+<!--  #container {-->
+<!--    font-size:16px;-->
+<!--    width:300px;-->
+<!--    margin:50px auto 0;-->
+<!--    text-align:center;-->
+<!--  }-->
+<!--  #container h1 {-->
+<!--    color:#276D8C;-->
+<!--  }-->
+<!--  #puzzle {-->
+<!--    height:242px;-->
+<!--    width:242px;-->
+<!--    position:relative;-->
+<!--    border:2px solid #757575;-->
+<!--    margin:0 auto 25px;-->
+<!--  }-->
+<!--  #puzzle .cell-puzzle {-->
+<!--    width: 58px;-->
+<!--    height: 58px;-->
+<!--    border: 2px solid white;-->
+<!--    position: absolute;-->
+<!--    text-align: center;-->
+<!--    vertical-align: middle;-->
+<!--    line-height: 20px;-->
+<!--    font-size: 36px;-->
+<!--    line-height: 60px;-->
+<!--    background-color: #3B9AFF;-->
+<!--    z-index: 100;-->
+<!--    cursor: pointer;-->
+<!--    user-select: none;-->
+<!--  }-->
+<!--  #puzzle .cell-puzzle-zero {-->
+<!--    background-color:white !important;-->
+<!--    z-index: 50;-->
+<!--  }-->
+<!--  #puzzle > .row-1 {-->
+<!--    top: 0;-->
+<!--  }-->
+<!--  #puzzle > .row-2 {-->
+<!--    top: 60px;-->
+<!--  }-->
+<!--  #puzzle > .row-3 {-->
+<!--    top: 120px;-->
+<!--  }-->
+<!--  #puzzle > .row-4 {-->
+<!--    top: 180px;-->
+<!--  }-->
+<!--  #puzzle > .col-1 {-->
+<!--    left: 0;-->
+<!--  }-->
+<!--  #puzzle > .col-2 {-->
+<!--    left: 60px;-->
+<!--  }-->
+<!--  #puzzle > .col-3 {-->
+<!--    left: 120px;-->
+<!--  }-->
+<!--  #puzzle > .col-4 {-->
+<!--    left: 180px;-->
+<!--  }-->
+<!--  #container-play{-->
+<!--    margin: 10px 0;-->
+<!--    text-align: center;-->
+<!--    height:50px;-->
+<!--  }-->
+<!--  #play{-->
+<!--    width:150px;-->
+<!--    height:50px;-->
+<!--    border:2px solid #3f4f2e;-->
+<!--    text-align:center;-->
+<!--    text-decoration:none;-->
+<!--    font-weight:600;-->
+<!--    font-size:20px;-->
+<!--    background-color:#689b37;-->
+<!--    display: inline-block;-->
+<!--    color: white;-->
+<!--    text-align: center;-->
+<!--    line-height: 48px;-->
+<!--    border-radius: 3px;-->
+<!--  }-->
+<!--  #alert_puzzle {-->
+<!--    font-size: 16px;-->
+<!--    color: coral;-->
+<!--  }-->
+<!--</style>-->
+
+<!--test game rắn săn mồi-->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title></title>
+
+  <style>
+
+    html, body {
+
+      height: 100%;
+
+      margin: 0;
+
+    }
+
+
+    body {
+
+      background: black;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+    }
+
+    canvas {
+
+      border: 1px solid white;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<canvas width="400" height="400" id="game"></canvas>
+
+<script>
+  //Ở đây ta tạo ra bộ khung chứa game
+
+  var canvas = document.getElementById('game');
+
+  var context = canvas.getContext('2d');
+
+
+
+  var grid = 16;
+  // khởi tạo đối tượng rắn là 1 ô vuông
+
+  var snake = {
+
+    x: 160, //vị trí của snake theo hướng x,y
+
+    y: 160,
+
+    dx: grid, //hướng di chuyển theo phương x hoặc y,ở đây khi start game
+    //snake sẽ di chuyển theo x direction với value = 16
+
+    dy: 0,
+
+    cells: [],
+
+    maxCells: 4
+
+  };
+
+  var count = 0;
+
+  var apple = {
+
+    x: 320,
+
+    y: 320
+
+  };
+
+
+  function getRandomInt(min, max) {
+
+    return Math.floor(Math.random() * (max - min)) + min;
+
+  }
+
+
+  // game loop
+
+  function loop() {
+//hàm này giống như setTimeout, sẽ gọi lại hàm loop khi loop thực thi xong
+
+    requestAnimationFrame(loop);
+
+
+    // slow game loop to 15 fps instead of 60 - 60/15 = 4
+
+    if (++count < 4) {
+
+      return;
+
+    }
+
+
+    count = 0;
+
+    context.clearRect(0,0,canvas.width,canvas.height);
+
+
+    snake.x += snake.dx; // mỗi loop rắn sẽ di chuyển thêm 1dx đơn vị
+
+    snake.y += snake.dy;
+
+
+    // khi snake đụng tường sẽ chạy lại từ edge đối diện
+
+    if (snake.x < 0) {
+
+      snake.x = canvas.width - grid;
+
+    }
+
+    else if (snake.x >= canvas.width) {
+
+      snake.x = 0;
+
+    }
+
+
+    if (snake.y < 0) {
+
+      snake.y = canvas.height - grid;
+
+    }
+
+    else if (snake.y >= canvas.height) {
+
+      snake.y = 0;
+
+    }
+
+
+    // Phương thức unshift sẽ thêm một hoặc nhiều phần tử vào đầu mảng
+
+    snake.cells.unshift({x: snake.x, y: snake.y});
+
+
+    // thêm 1 ô vuông phía trc thì phải remove 1 cái phía sau để snake move dc.
+
+    if (snake.cells.length > snake.maxCells) {
+
+      snake.cells.pop();
+
+    }
+
+
+    // draw apple
+
+    context.fillStyle = 'red';
+
+    context.fillRect(apple.x, apple.y, grid-1, grid-1);
+
+
+    // draw snake
+
+    context.fillStyle = 'green';
+
+    snake.cells.forEach(function(cell, index) {
+
+      context.fillRect(cell.x, cell.y, grid-1, grid-1);
+
+
+      // snake ate apple
+
+      if (cell.x === apple.x && cell.y === apple.y) {
+
+        snake.maxCells++;
+
+
+        apple.x = getRandomInt(0, 25) * grid;
+
+        apple.y = getRandomInt(0, 25) * grid;
+
+      }
+
+
+      // check va chạm khi rắn đụng đuôi
+
+      for (var i = index + 1; i < snake.cells.length; i++) {
+
+
+
+        // va chạm thì reset game
+
+        if (cell.x === snake.cells[i].x && cell.y === snake.cells[i].y) {
+
+          snake.x = 160;
+
+          snake.y = 160;
+
+          snake.cells = [];
+
+          snake.maxCells = 4;
+
+          snake.dx = grid;
+
+          snake.dy = 0;
+
+
+          apple.x = getRandomInt(0, 25) * grid;
+
+          apple.y = getRandomInt(0, 25) * grid;
+
+        }
+
+      }
+
+    });
+
+  }
+
+  //bắt sự kiện bàn phím ấn xuống
+
+  document.addEventListener('keydown', function(e) {
+
+    // lọc sự kiện keydown để rắn không di ngược lại
+
+    if (e.which === 37 && snake.dx === 0) {
+
+      snake.dx = -grid;
+
+      snake.dy = 0;
+
+    }
+
+    else if (e.which === 38 && snake.dy === 0) {
+
+      snake.dy = -grid;
+
+      snake.dx = 0;
+
+    }
+
+    else if (e.which === 39 && snake.dx === 0) {
+
+      snake.dx = grid;
+
+      snake.dy = 0;
+
+    }
+
+    else if (e.which === 40 && snake.dy === 0) {
+
+      snake.dy = grid;
+
+      snake.dx = 0;
+
+    }
+
+  });
+
+
+  requestAnimationFrame(loop);
+
+</script>
+
+</body>
+
+</html>

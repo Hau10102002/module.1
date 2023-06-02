@@ -1,0 +1,122 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  <title>Ứng dụng quản lý sản phẩm</title>-->
+<!--  <style>-->
+<!--    table {-->
+<!--      width: 100%;-->
+<!--      border-collapse: collapse;-->
+<!--    }-->
+<!--    table, th, td {-->
+<!--      border: 1px solid black;-->
+<!--      padding: 5px;-->
+<!--    }-->
+<!--  </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1>Ứng dụng quản lý sản phẩm</h1>-->
+
+<!--<form id="addForm">-->
+<!--  <input type="text" id="productName" placeholder="Nhập tên sản phẩm">-->
+<!--  <button type="button" onclick="addProduct()">Them</button>-->
+<!--</form>-->
+
+<!--<table id="productTable">-->
+<!--  <tr>-->
+<!--    <th>Số thứ tự</th>-->
+<!--    <th>Tên sản phẩm</th>-->
+<!--    <th></th>-->
+<!--  </tr>-->
+<!--</table>-->
+
+<!--<script>-->
+
+<!--  var productList = [];-->
+
+
+<!--  function displayProducts() {-->
+<!--    var table = document.getElementById("productTable");-->
+<!--    // Xóa dữ liệu cũ trong bảng-->
+<!--    while (table.rows.length > 1) {-->
+<!--      table.deleteRow(1);-->
+<!--    }-->
+
+
+<!--    for (var i = 0; i < productList.length; i++) {-->
+<!--      var product = productList[i];-->
+<!--      var row = table.insertRow(i + 1);-->
+<!--      var indexCell = row.insertCell(0);-->
+<!--      var nameCell = row.insertCell(1);-->
+<!--      var deleteCell = row.insertCell(2);-->
+
+<!--      indexCell.innerHTML = i + 1;-->
+<!--      nameCell.innerHTML = product;-->
+<!--      deleteCell.innerHTML = "<button onclick='deleteProduct(" + i + ")'>Xoá</button>";-->
+<!--    }-->
+<!--  }-->
+
+<!--  function addProduct() {-->
+<!--    var productName = document.getElementById("productName").value;-->
+<!--    if (productName !== "") {-->
+<!--      productList.push(productName);-->
+<!--      document.getElementById("productName").value = "";-->
+<!--      displayProducts();-->
+<!--      alert("Thêm sản phẩm thành công!");-->
+<!--    } else {-->
+<!--      alert("Vui lòng nhập tên sản phẩm.");-->
+<!--    }-->
+<!--  }-->
+
+<!--  function editProduct(index) {-->
+<!--    var newName = prompt("Nhập tên mới cho sản phẩm:", productList[index]);-->
+<!--    if (newName !== null) {-->
+<!--      productList[index] = newName;-->
+<!--      displayProducts();-->
+<!--    }-->
+<!--  }-->
+
+<!--  function deleteProduct(index) {-->
+<!--    productList.splice(index, 1);-->
+<!--    displayProducts();-->
+<!--  }-->
+
+<!--  -->
+<!--  displayProducts();-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--Sau đây là ví dụ hoàn chỉnh hơn minh họa tác dụng của việc sử dụng đối tượng arguments-->
+<!--<!doctype html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  <title>Arguments Array</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<script type="text/javascript">-->
+<!--  function myFunction() {-->
+<!--    let firstArg = arguments[0];-->
+<!--    let secondArg = arguments[1];-->
+<!--    alert("firstArg is: " + firstArg);-->
+<!--    alert("secondArg is: " + secondArg);-->
+<!--  }-->
+<!--  myFunction("hello","world");-->
+<!--</script>-->
+<!--<form action="https://translate.google.com/?sl=vi&tl=en&text=m%C3%A0u%20xanh&op=translate" >-->
+<!--    <input type="text"/>-->
+<!--    <input type="submit" value="Tìm kiếm"/>-->
+<!--    \-->
+
+<!--<button type="button" onclick="showMessage();">Click Me!</button>-->
+<!--<script>-->
+<!--    function showMessage(){-->
+<!--        alert('Xin chao!');-->
+<!--    }-->
+<!--</script>-->
+
+<!---->
+
+</form>
+</body>
+</html>
+
