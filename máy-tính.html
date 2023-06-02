@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Máy tính</title>
+    <script> // Khởi tạo mảng lưu trữ danh sách máy tính
+    var computers = [];
+
+    // Lấy các phần tử trong form
+    var addForm = document.getElementById('addForm');
+    var maMayInput = document.getElementById('maMay');
+    var tenMayInput = document.getElementById('tenMay');
+    var tenHangInput = document.getElementById('tenHang');
+    var giaBanInput = document.getElementById('giaBan');
+    var computerList = document.getElementById('computerList');
+
+    // Xử lý sự kiện submit form
+    addForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Lấy giá trị từ các trường input
+        var maMay = maMayInput.value;
+        var tenMay = tenMayInput.value;
+        var tenHang = tenHangInput.value;
+        var giaBan = giaBanInput.value;
+
+        // Tạo đối tượng máy tính mới
+        var computer = new MayTinh(maMay, tenMay, tenHang, giaBan);
+
+        // Thêm máy tính vào danh sách
+        computers.push(computer);
+
+        // Hiển thị danh sách máy tính
+        displayComputerList();
+
+        // Xóa giá trị trong các trường input
+        maMayInput.value = '';
+        tenMayInput.value = '';
+        tenHangInput.value = '';
+        giaBanInput.value = '';
+    });
+
+    // Lớp Máy tính
+    function MayTinh(ma_may, ten_may, ten_hang, gia_ban) {
+        this.ma_may = ma_may;
+        this.ten_may = ten_may;
+        this.ten_hang = ten_hang;
+        this.gia_ban = gia_ban;
+    }
+
+    // Phương thức toString của lớp Máy tính
+    MayTinh.prototype.toString = function() {
+        return "Mã máy: " + this.ma_may + ", Tên máy: " + this.ten_may + ", Hãng sản xuất: " + this.ten_hang + ", Giá bán: " + this.gia_ban;
+    }
+
+    // Hiển thị danh sách máy tính
+    function displayComputerList() {
+        // Xóa danh sách máy tính hiện tại
+        computerList.innerHTML = '';
+
+        // Duyệt qua danh sách máy tính và hiển thị thông tin
+        for (var i = 0; i < computers.length; i++) {
+            var computerItem = document.createElement('li');
+            computerItem.textContent = computers[i].toString();
+            computerList.appendChild(computerItem);
+        }
+    }
+    </script>
+</head>
+<body>
+<h1>Quản lý Máy tính</h1>
+<form id="addForm">
+    <label for="maMay">Mã máy:</label>
+    <input type="text" id="maMay" required><br>
+    <label for="tenMay">Tên máy:</label>
+    <input type="text" id="tenMay" required><br>
+    <label for="tenHang">Tên Hãng sản xuất:</label>
+    <input type="text" id="tenHang" required><br>
+    <label for="giaBan">Giá bán:</label>
+    <input type="number" id="giaBan" required><br>
+    <input type="submit" value="Thêm máy tính">
+</form>
+<h2>Danh sách máy tính</h2>
+<ul id="computerList"></ul>
+</body>
+</html>
+
+
+<!--Tạo một lớp Máy tính có:-->
+<!-- - Thuộc tính:-->
+<!--+ Mã máy (string)-->
+<!--+ Tên máy(string)-->
+<!--+ Tên Hãng sản xuất (string)-->
+<!--+ Giá bán (number).-->
+<!-- - Các phương thức getter và setter cho các thuộc tính-->
+<!-- - Phương thức toString() : phương thức lấy các thông tin của đối tượng.-->
+<!-- -Yêu cầu: Viết chương trình quản lý Máy tính với các chức năng sau;-->
+<!--+ Thêm mới 1 máy tính-->
+<!--+ Hiển thị được danh sách máy tính-->
+<!-- -Thang điểm:-->
+
+<!--Khai báo được lớp máy tính 8-->
+<!--Thêm mới được 1 máy tính 5-->
+<!--Hiển thị ra được trang danh sách máy tính không-->
+<!--sắp xếp-->
+
+<!--5-->
+<!--Hiện thị được sắp xếp theo giá 5-->

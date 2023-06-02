@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  class Rectangle {
+    constructor(length, width) {
+      this.length = length;
+      this.width = width;
+    }
+
+    getPerimeter() {
+      return (this.length + this.width)*2;
+    }
+
+    getArea() {
+      return this.length * this.width;
+    }
+
+    getInfor() {
+      alert("Chu Vi Hình Chữ Nhật Là: " + this.getPerimeter() + " Diện tích Hình Chữ Nhật là :" + this.getArea());
+    }
+    setRectangle(newLength,newWidth){
+      this.length = newLength;
+      this.width = newWidth;
+    }
+  }
+  let lengthOfRectangle = +prompt("Nhập chiều dài Hình Chữ Nhật: ");
+  let widthOfRectangle = +prompt("Nhập chiều rộng Hình Chữ Nhật: ");
+  let rectangle = new Rectangle(lengthOfRectangle,widthOfRectangle);
+  rectangle.setRectangle(lengthOfRectangle,widthOfRectangle);
+  rectangle.getInfor();
+</script>
+</body>
+</html>

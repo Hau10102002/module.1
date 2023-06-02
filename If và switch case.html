@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+var luongNhanVien = parseFloat(prompt("Nhập lương nhân viên:"));
+var thueThuNhap = 0;
+var luongRong = 0;
+
+switch (true) {
+case luongNhanVien >= 15000000:
+thueThuNhap = luongNhanVien * 0.2;
+break;
+case luongNhanVien >= 7000000 && luongNhanVien < 15000000:
+thueThuNhap = luongNhanVien * 0.1;
+break;
+case luongNhanVien < 7000000:
+thueThuNhap = luongNhanVien * 0.05;
+break;
+}
+
+luongRong = luongNhanVien - thueThuNhap;
+
+console.log("Thuế thu nhập: " + thueThuNhap);
+console.log("Lương ròng: " + luongRong);
+</script>
+</body>
+</html>

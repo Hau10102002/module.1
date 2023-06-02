@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function veTamGiacCanRong(h) {
+    // Vẽ từng dòng của tam giác
+    for (let i = 0; i < h; i++) {
+      let row = ''; // Chuỗi chứa ký tự của dòng hiện tại
+
+      // In khoảng trắng để căn lề bên trái tam giác
+      for (let j = 0; j < h - i - 1; j++) {
+        row += ' ';
+      }
+
+      // Kiểm tra nếu đây là dòng đầu tiên hoặc dòng cuối cùng
+      // hoặc nếu là vị trí in ký tự '*' ở đầu hoặc cuối dòng
+      // thì in ký tự '*'
+      if (i === 0 || i === h - 1 || i === Math.floor(h / 2)) {
+        row += '*';
+      } else {
+        // Nếu không thì in khoảng trắng ở vị trí đầu và cuối dòng
+        // Các vị trí khác in khoảng trắng
+        row += ' ';
+      }
+
+      console.log(row);
+    }
+  }
+
+  // Gọi hàm vẽ tam giác cân rỗng với h = 5
+  veTamGiacCanRong(5);
+
+</script>
+</body>
+</html>
