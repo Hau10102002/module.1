@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+</head>
+<body>
+<div id='game'></div>
+<script>
+  class Pokemon {
+    constructor(image, top, left, size, speed) {
+      this.image = image;
+      this.top = top;
+      this.left = left;
+      this.size = size;
+      this.speed = speed
+    }
+    getHeroElement() {
+      return '<img width="' + this.size + '"' +
+              ' height="' + this.size + '"' +
+              ' src="' + this.image + '"' +
+              ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
+    }
+    moveRight() {
+      this.left += this.speed;
+      console.log('ok: ' + this.left);
+    }
+    moveLeft() {
+      this.left -= this.speed;
+      console.log('ok: ' + this.left);
+    }
+    moveTop() {
+      this.top -= this.speed;
+      console.log('ok: ' + this.top);
+    }
+    moveBottom() {
+      this.top += this.speed;
+      console.log('ok: ' + this.top);
+    }
+    render() {
+      game.innerHTML = this.getHeroElement();
+    }
+  }
+  let pokemon = new Pokemon('./Images/pikachu.png', 20, 30, 200, 100);
+
+  function start() {
+    pokemon.render();
+    document.addEventListener('keydown', key => {
+      console.log((key))
+      switch (key.code) {
+        case "ArrowRight":
+          pokemon.moveRight();
+          pokemon.render();
+          break;
+        case "ArrowUp":
+          pokemon.moveTop();
+          pokemon.render();
+          break;
+        case "ArrowLeft":
+          pokemon.moveLeft();
+          pokemon.render();
+          break;
+        case "ArrowDown":
+          pokemon.moveBottom();
+          pokemon.render();
+          break;
+      }
+    })
+  }
+
+  start();
+</script>
+</body>
+</html>

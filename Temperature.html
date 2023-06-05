@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+  let temperature= function (c)
+  {
+    this.c=c;
+    this.getChangeF=function ()
+    {
+      return c*1.8+32;
+    }
+    this.getChangeK =function ()
+    {
+      return c+273.15;
+    }
+    toString()
+    {
+      return c;
+    }
+  };
+  let tem=new temperature(2);
+  let results=  tem.getChangeF();
+  console.log(results);
+  document.write(results);
+</script>
+</html>

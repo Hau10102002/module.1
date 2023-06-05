@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+  class Phone {
+    constructor(pin, texting , status) {
+      this.pin=pin;
+      this.texting=texting;
+      this.inbox=[];
+      this.message=[];
+      this.status = status
+    }
+    checkphone()
+    {
+      if(this.status==1)
+      {
+        console.log("Điện thoại đang bật ");
+      }else if (this.status==-1)
+      {
+        console.log("Điện thoại đang tắt");
+      }
+    }
+    battery_Phone()
+    {
+      this.pin++;
+    }
+    texting1()
+    {
+      if(this.status==1){
+        this.texting=prompt("soạn tin nhắn ");
+        this.pin--;
+      }else
+      {
+        console.log("Điện thoại bạn đang tắt ");
+      }
+    }
+    xemtinden()
+    {
+      if(this.status==1){
+        console.log("tin nhan:"+this.inbox);
+        this.pin--;
+      }else
+      {
+        console.log("Điện thoại bạn đang tắt ");
+      }
+
+    }
+    guitinnhan(content , doituong)
+    {
+      if(this.status==1){
+        this.message.push(content);
+        doituong.nhanthu(content);
+        console.log("đã gửi");
+        this.pin--;
+      }else
+      {
+        console.log("Điện thoại bạn đang tắt ");
+      }
+    }
+    nhanthu(content)
+    {
+      this.inbox.push(content);
+      console.log("có hộp thư đến ");
+    }
+    turnphone()
+    {
+      return this.status = 1;
+    }
+    offphone()
+    {
+      return this.status =-1;
+    }
+  }
+  Phone1=new Phone(28);
+  Phone2=new Phone();
+  Phone1.turnphone();
+  Phone1.checkphone();
+  // Phone1.offphone();
+  // Phone1.checkphone();
+  Phone1.battery_Phone();
+  console.log(Phone1.pin);
+  setInterval(chargePin, 2000)
+
+  function chargePin() {
+    Phone1.battery_Phone();
+    console.log(Phone1.pin)
+  }
+  Phone2.turnphone();
+  Phone1.guitinnhan("hahahah",Phone2)
+  Phone2.xemtinden();
+  // Phone2.texting1();
+
+
+
+
+
+
+</script>
+</html>

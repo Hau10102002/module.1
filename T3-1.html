@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function prefixSums(a) {
+    const n = a.length;
+    const b = Array(n).fill(0); // Khởi tạo mảng b với n phần tử 0
+
+    // Tính tổng prefix sums
+    let prefixSum = 0;
+    for (let i = 0; i < n; i++) {
+      prefixSum += a[i];
+      b[i] = prefixSum;
+    }
+
+    return b;
+  }
+
+  // Kiểm tra kết quả
+  const a = [1, 2, 3];
+  const result = prefixSums(a);
+  console.log(result); // Kết quả: [1, 3, 6]
+
+</script>
+</body>
+</html>
