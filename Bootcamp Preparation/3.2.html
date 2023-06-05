@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+  let arrA=[];
+  let arrB=[];
+  let n=+prompt("Nhập độ dài của A :");
+  for (let i = 0; i < n; i++) {
+    arrA[i]=+prompt("Nhập mảng A :");
+  }
+  let m=+prompt("Nhập Độ dài của mảng B")
+  for (let i = 0; i < m; i++) {
+    arrB[i]=+prompt("Nhập mảngB:");
+  }
+  for (let i = 0; i < arrA.length; i++) {
+    if(arrB.indexOf(arrA[i])==-1)
+    {
+      document.write(arrA[i]);
+    }
+  }
+</script>
+</html>

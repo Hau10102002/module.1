@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function findMinMax(matrix) {
+    let min = matrix[0][0];
+    let max = matrix[0][0];
+
+    for (let i = 0; i < matrix.length; i++) {
+      for (let j = 0; j < matrix[i].length; j++) {
+        if (matrix[i][j] < min) {
+          min = matrix[i][j];
+        }
+        if (matrix[i][j] > max) {
+          max = matrix[i][j];
+        }
+      }
+    }
+
+    console.log("Giá trị nhỏ nhất:", min);
+    console.log("Giá trị lớn nhất:", max);
+  }
+
+  let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+  findMinMax(matrix);
+
+</script>
+</body>
+</html>

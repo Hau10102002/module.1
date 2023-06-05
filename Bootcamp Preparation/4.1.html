@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+  let n=prompt("Nhập chuỗi vào :");         //hàm trim để cắt khoảng trống ở đầu với cuối
+  let a = n.trim().split('');
+  let results="";
+  console.log(a);
+  for (let i = 0; i < a.length; i++) {
+    if(i==0)
+    {
+      a[0]=a[0].toUpperCase();
+      console.log(a[i]);
+    }else if(a[i]==" ")
+    {
+      a[i+1]=a[i+1].toUpperCase();
+      console.log(a[i+1]);
+    }else
+    {
+      results=a[i].toLowerCase();
+      // console.log(results);
+    }
+  }
+  document.write(a.join(''));
+
+
+</script>
+</html>

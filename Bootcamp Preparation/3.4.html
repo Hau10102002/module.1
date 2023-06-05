@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<ul>
+  <li type="1">cafe</li>
+  <li type="1">Cam Vắt</li>
+  <li type="1">Nước Ép Cà Rốt</li>
+  <li type="1">Nước Ép Cà Chua</li>
+  <li type="1">Nước Lọc</li>
+  <li type="1">Nước Dừa</li>
+  <li type="1">Out</li>
+</ul>
+<button type="submit" onclick="oder()">Oder</button>
+</body>
+<script>
+  function oder()
+  {
+
+    let m;
+    let total=0;
+    do {
+      n=+prompt("Nhập món:");
+      switch (n) {
+        case 1:
+          m=+prompt("Có giá là 1000 , vui lòng nhập số lượng");
+          total+=m*1000;
+          break;
+        case 2:
+          m=+prompt("Có giá là 1000 , vui lòng nhập số lượng");
+          total+=m*2000;
+          break;
+        case 3:
+          m=+prompt("Có giá là 1000 , vui lòng nhập số lượng");
+          total+=m*3000;
+          break;
+        case 4:
+          m=+prompt("Có giá là 1000 , vui lòng nhập số lượng");
+          total+=m*4000;
+          break;
+        case 5:
+          m=+prompt("Có giá là 1000 , vui lòng nhập số lượng");
+          total+=m*5000;
+          break;
+        case 6:
+          m=+prompt("Có giá là 1000 , vui lòng nhập số lượng");
+          total+=m*7000;
+          break;
+      }
+    }while (1<=n && n<=6)
+    alert("Tổng số tiền :"+total);
+
+  }
+</script>
+</html>

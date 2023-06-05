@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+</body>
+<script>
+  let n=prompt("Nhập chuỗi kí tự:");
+  let a=n.trim().split('');
+  let count;
+  let result=0;
+  for (let i = 0; i < a.length; i++) {
+    count=0;
+    for (let j = 0; j <=i; j++) {
+      if(a[j]==a[i])
+      {
+        count++;
+      }
+    }
+    if(count ==1)
+    {
+      result++;
+    }
+
+  }
+  document.write(result);
+</script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrime(n) {
+        if (n <= 1) {
+            return false;
+        }
+
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i === 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    function countAndListPrimes(matrix) {
+        let count = 0;
+        let primes = [];
+
+        for (let i = 0; i < matrix.length; i++) {
+            for (let j = 0; j < matrix[i].length; j++) {
+                if (isPrime(matrix[i][j])) {
+                    count++;
+                    primes.push(matrix[i][j]);
+                }
+            }
+        }
+
+        console.log("Các số nguyên tố trong mảng 2 chiều:", primes);
+        console.log("Số lượng số nguyên tố:", count);
+    }
+
+    let matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+    countAndListPrimes(matrix);
+
+</script>
+</body>
+</html>

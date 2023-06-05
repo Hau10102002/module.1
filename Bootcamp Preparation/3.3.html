@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let arr1=[1,2,3];
+  let arr2=[3,2,1];
+  let resultt=[];
+  // for (let i = 0; i < 3; i++) {
+  //   arr1[i]=+prompt("nhập số của mảng 1:");
+  // }
+  // for (let i = 0; i < arr1.length; i++) {
+  //   document.write(arr1[i]);
+  // }
+  document.write("numerators ="+arr1);
+  document.write("<br>");
+  document.write("denominators ="+arr2);
+  // for (let i = 0; i < 3; i++) {
+  //   arr2[i]=+prompt("nhập số của mảng 1:");
+  // }
+  // for (let i = 0; i < arr2.length; i++) {
+  //   document.write(arr2[i]);
+  // }
+  for (let i = 0; i < arr1.length; i++) {
+    resultt.push(arr1[i]/arr2[i]);
+  }
+  document.write("<br>");
+  document.write("kết quả của từng phân số:   "+resultt);
+  document.write("<br>");
+
+  let check=0;
+  let tt=0;
+  for (let i = 0; i < resultt.length; i++) {
+    if(check<resultt[i])
+    {
+      check=resultt[i];
+      tt=i;
+    }
+  }
+  document.write("Phân số lớn nhất:"+check);
+  document.write("<br>");
+  document.write("Ở thứ tự thứ "+(tt+1));
+</script>
+</body>
+</html>

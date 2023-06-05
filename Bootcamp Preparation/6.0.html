@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button type="submit" onclick="add(svlist)">Thêm mới học viên</button>
+<button type="submit" onclick="fix(svlist)">Sửa thông tin học viên</button>
+<button type="submit" onclick="deletee(svlist)">Xóa học viên</button>
+<div id="svlist">
+
+</div>
+</body>
+<script>
+  class Sinhvien {
+    constructor(id, name, classs, email, dateOfBirth) {
+      this.id = id;
+      this.name = name;
+      this.classs = classs;
+      this.email = email;
+      this.dateOfBirth = dateOfBirth;
+    }
+  }
+
+  function display(list) {
+    let table = "<table border='1' cellpadding='10'>" +
+            "<tr>" +
+            "<th>Mã Sinh Viên</th>" +
+            "<th>Tên</th>" +
+            "<th>Lớp</th>" +
+            "<th>Email</th>" +
+            "<th>Ngày Sinh</th>" +
+            "</tr>"
+    for (let i = 0; i < svlist.length; i++) {
+      table += "<tr>" +
+              "<td>" + (svlist[i].id) + "</td>" +
+              "<td>" + (svlist[i].name) + "</td>" +
+              "<td>" + (svlist[i].classs) + "</td>" +
+              "<td>" + (svlist[i].email) + "</td>" +
+              "<td>" + (svlist[i].dateOfBirth) + "</td>" +
+              "</tr>"
+    }
+    table += "</table>";
+    document.getElementById("svlist").innerHTML = table;
+  }
+
+  function add(svlist) {
+    let sv = new Sinhvien();
+    sv.id = prompt("Nhập id");
+    sv.name = prompt("Nhập tên:");
+    sv.classs = prompt("NHập lớp:");
+    sv.email = prompt("Nhập email:");
+    sv.dateOfBirth = prompt("Nhập ngày tháng năm sinh :");
+    svlist.push(sv);
+    display(svlist);
+  }
+
+  function fix(svlist) {
+    let idCheck = prompt("nhap id muon update");
+    for (let i=0; i < svlist.length ; i++ ){
+      if(svlist[i].id == idCheck){
+        svlist[i].name = prompt("Nhập tên:");
+        svlist[i].classs = prompt("NHập lớp:");
+        svlist[i].email = prompt("Nhập email:");
+        svlist[i].dateOfBirth = prompt("Nhập ngày tháng năm sinh :");
+        display(svlist);
+        break;
+      }else {
+        alert("id khong ton tại");
+      }
+    }
+  }
+  function deletee(svlist) {
+    let idcheck = prompt("Nhập id muốn xóa:");
+    let found = false;
+
+    for (let i = 0; i < svlist.length; i++) {
+      if (svlist[i].id == idcheck) {
+        svlist.splice(i, 1);
+        found = true;
+        display(svlist);
+        break;
+      }
+    }
+
+    if (!found) {
+      alert("không có nha");
+    }
+  }
+
+
+  let sv1 = new Sinhvien(123, "Dang Van Hau", 2, "quanismevn", 23);
+  let sv2 = new Sinhvien(23, "Dang Van Hau", 2, "quanismevn", 23);
+  let sv3 = new Sinhvien(13, "Dang Van Hau", 2, "quanismevn", 23);
+  let svlist = [sv1, sv2, sv3];
+  display(svlist);
+
+</script>
+</html>
