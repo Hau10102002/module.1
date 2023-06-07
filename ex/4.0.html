@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý điện thoại</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #426913;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #298cfe;
+        }
+    </style>
+</head>
+<body>
+<h2>Quản lý điện thoại</h2>
+
+<form id="phoneForm">
+    <label for="phoneCode">Mã điện thoại:</label>
+    <input type="text" id="phoneCode" required><br><br>
+
+    <label for="phoneName">Tên điện thoại:</label>
+    <input type="text" id="phoneName" required><br><br>
+
+    <label for="phoneManufacturer">Hãng sản xuất:</label>
+    <input type="text" id="phoneManufacturer" required><br><br>
+
+    <label for="phonePrice">Giá:</label>
+    <input type="number" id="phonePrice" required><br><br>
+
+    <input type="submit" value="Thêm mới">
+</form>
+
+<h3>Danh sách điện thoại:</h3>
+<table id="phoneTable">
+    <tr>
+        <th>Mã điện thoại</th>
+        <th>Tên điện thoại</th>
+        <th>Hãng sản xuất</th>
+        <th>Giá</th>
+        <th></th>
+    </tr>
+</table>
+
+<script>
+    class Phone {
+        constructor(code, name, manufacturer, price) {
+            this.code = code;
+            this.name = name;
+            this.manufacturer = manufacturer;
+            this.price = price;
+        }
+
+        // Getter và setter
+        getCode() {
+            return this.code;
+        }
+
+        setCode(code) {
+            this.code = code;
+        }
+
+        getName() {
+            return this.name;
+        }
+
+        setName(name) {
+            this.name = name;
+        }
+
+        getManufacturer() {
+            return this.manufacturer;
+        }
+
+        setManufacturer(manufacturer) {
+            this.manufacturer = manufacturer;
+        }
+
+        getPrice() {
+            return this.price;
+        }
+
+        setPrice(price) {
+            this.price = price;
+        }
+
+        toString() {
+            return `Mã điện thoại: ${this.code}, Tên điện thoại: ${this.name}, Hãng sản xuất: ${this.manufacturer}, Giá: ${this.price}`;
+        }
+    }
+
+    function addPhone(event) {
+        event.preventDefault();
+
+        const code = document.getElementById("phoneCode").value;
+        const name = document.getElementById("phoneName").value;
+        const manufacturer = document.getElementById("phoneManufacturer").value;
+        const price = document.getElementById("phonePrice").value;
+
+        const phone = new Phone(code, name, manufacturer, price);
+
+        const table = document.getElementById("phoneTable");
+        const row = table.insertRow(-1);
+
+        const cell1 = row.insertCell(0);
+        const cell2 = row.insertCell(1);
+        const cell3 = row.insertCell(2);
+        const cell4 = row.insertCell(3);
+        const cell5 = row.insertCell(4);
+
+        cell1.innerHTML = code;
+        cell2.innerHTML = name;
+        cell3.innerHTML = manufacturer;
+        cell4.innerHTML = price;
+        cell5.innerHTML = '<button onclick="deletePhone(this)">Xóa</button>';
+    }
+
+    function deletePhone(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+
+    const form = document.getElementById("phoneForm");
+    form.addEventListener("submit", addPhone);
+</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function calculateDifference() {
+        var arr = [];
+        var evenSum = 0;
+        var oddSum = 0;
+
+        var n = parseInt(prompt("Nhập số lượng phần tử trong mảng (n <= 20):"));
+        if (n > 20) {
+            console.log("Số lượng phần tử vượt quá 20.");
+            return;
+        }
+
+        for (var i = 0; i < n; i++) {
+            var num = parseInt(prompt("Nhập phần tử thứ " + (i + 1) + ":"));
+            arr.push(num);
+        }
+
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 === 0) {
+                evenSum += arr[i];
+            } else {
+                oddSum += arr[i];
+            }
+        }
+
+        var difference = evenSum - oddSum;
+        console.log("Kết quả = " + difference);
+    }
+
+    calculateDifference();
+
+</script>
+</body>
+</html>

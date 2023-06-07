@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function isPrime(number) {
+    if (number <= 1) {
+      return false;
+    }
+
+    for (let i = 2; i <= Math.sqrt(number); i++) {
+      if (number % i === 0) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function findPrimes(numbers) {
+    const primes = [];
+
+    for (let i = 0; i < numbers.length; i++) {
+      if (isPrime(numbers[i])) {
+        primes.push(numbers[i]);
+      }
+    }
+
+    primes.sort((a, b) => a - b);
+
+    return primes;
+  }
+  const numbers = [1, 5, 6, 23, 8, 47, 10, 3];
+  const primeNumbers = findPrimes(numbers);
+
+  console.log(primeNumbers);
+
+</script>
+</body>
+</html>
